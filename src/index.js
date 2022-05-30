@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { RecoilRoot } from 'recoil';
+import { HelmetProvider } from "react-helmet-async";
+ 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient();
@@ -13,11 +15,13 @@ const queryClient = new QueryClient();
 root.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
     <React.StrictMode>
+      <HelmetProvider>
       <QueryClientProvider client = {queryClient}>
         <RecoilRoot>
           <App />
         </RecoilRoot>
       </QueryClientProvider>
+      </HelmetProvider>
     </React.StrictMode>
   </BrowserRouter>
 );
