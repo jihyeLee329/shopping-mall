@@ -10,7 +10,6 @@ const H1 = styled.h1`
     font-wieght:bold; 
     margin:30px 0;
 `
-
 const BrandList = styled.li`
  border-radius:2px; 
  background:#e5e8eb;
