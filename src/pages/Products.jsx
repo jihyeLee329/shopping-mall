@@ -36,7 +36,6 @@ export default function Products() {
     setLoading(false);
     return ()=> setBrandPrd([]);
   },[]);
-  console.log(brandPrd.products)
 
   return (
     <>
