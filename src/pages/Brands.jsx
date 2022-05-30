@@ -1,9 +1,10 @@
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import {brandAtom} from '../atoms'
+import {brandAtom, colorsAtom} from '../atoms'
 import { fetchBrands } from "../api/Api";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import styled from 'styled-components'
+import { useEffect } from "react";
 
 const H1 = styled.h1`
     font-size:40px; 
@@ -22,12 +23,20 @@ const BrandList = styled.li`
 export default function Brands() {
   const { isLoading, data: brands } = useQuery("products", fetchBrands);
   const [brandName,setBrandName] = useRecoilState(brandAtom);
-//   const [brandGet, brandSet] = useRecoilState(brandSelector)  
+  const [color,colorReset] = useRecoilState(colorsAtom);
+  
+  //색상 선택 초기화
+  useEffect(()=>{
+    colorReset('');
+  },[]); 
+ 
+  //브랜드 클릭
   function brandClick(e){
     setBrandName(e.target.textContent);
   }
   return (
     <>
+    <div className="wrapper">
       <H1>Brands List</H1>
       {!isLoading && (
         <ul>
@@ -38,6 +47,7 @@ export default function Brands() {
           ))}
         </ul>
       )}
+      </div>
     </>
   );
 }
