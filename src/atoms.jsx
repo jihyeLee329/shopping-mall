@@ -15,3 +15,21 @@ export const brandPrdAtom = atom({
     default:[],
 })
 
+export const colorsAtom = atom({
+    key:'colors',
+    default:'',
+})
+
+
+export const categoriesAtom = atom({
+    key:'categories',
+    default:[],
+})
+export const parentCateAtom = atom({
+    key:'parentCategories',
+    default:[],
+})
+export const categoryNameAtom = atom({
+    key:'categoryName',
+    default:'',
+})
