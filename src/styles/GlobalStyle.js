@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import reset from 'styled-reset'
 
 const GlobalStyle = createGlobalStyle`
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
     ${reset};
     *{
         line-height:1.2 !important;
@@ -19,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     img{ max-width:100%; width:100%; display:inline-block;}
     li,ul,ol,a{text-decoration:none; list-style:none;}
     .displaynone{display:none}
-    .wrapper{width:1250px; margin:0 auto; padding: 50px 0;}
+    .wrapper{position:relative; max-width:70vw; width:100%; min-width:850px; margin:0 auto; padding: 50px 0;}
    
 `
 
