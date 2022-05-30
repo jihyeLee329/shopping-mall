@@ -1,9 +1,25 @@
 import axios from "axios"
-const fetchBasic = 'https://lz5cdtbtci.execute-api.ap-northeast-2.amazonaws.com/assignment'
+export const fetchBasic = 'https://lz5cdtbtci.execute-api.ap-northeast-2.amazonaws.com/assignment'
 
-export const fetchProducts = ()=>{
-  return axios.get(`${fetchBasic}/products`);
+export const fetchProducts = async ()=>{
+  try {
+    const  {data}  = await axios.get(`${fetchBasic}/products`);
+    return data;
+  } catch (err) {
+    console.log("Error >>", err);
+  }
 }
+
+
+export const fetchBrandPrd = async (brandName)=>{
+  try {
+    const {data} = await axios.get(`${fetchBasic}/products?brand=${brandName}`)
+    return data
+  } catch(err) {
+    console.log("Error >>", err);
+  }
+}
+
 
 export const fetchCategories = ()=>{
   return axios.get(`${fetchBasic}/categories`);
